@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sharp-kayak-459602-i8",
+  "private_key_id": "bf30544ffcf8094d7084b1c85df548c20698cf89",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCl1YeDzWaca7Z8\nUnHCdtNkCa1Rrk5c9N3Jue/eetXMbOYn5PMzBKaSjLFzLx5GYtSMLC+xbmvAjTsg\n3LmzbDpGrST7qXXWqsUGXB3B9bEX4r9IOwNqWpDC/l5j6331a77Kz/QlEWs36CYD\nm0biYrJS48TyEgikHhgw2D9EgPxJUnUnDFG4mE4wdmLzEdxiiLcO1dtRO/ydEa8e\nzs1tajj8n3d/bwlaZ2+YHY8Y0lHaZvhx2CyldiLjL3YSjCZrdftiZTU2uytAljTN\nA2Xk65s7TzwAc2QR1Ayr7BjERhd+q0IndtO8GYem2UW75xi5aL0Xyo7oKO72r0N/\nP9af7Xu5AgMBAAECggEAASKHdWLz91ETZCFqTuLiSnZ4fa0cMy2n0OgZWKPtj6MV\nJiO+eFRpUWpuEnQ5mFC31Ke+wc+YJC6zP2PTT4OHmJE5xhEgUdJEW+lIeNnWFuxB\n09w3h0RMZlE4UyW67HGK0jd/G7vVSIIptG+dGhKD1uZhJCj0by8XikoIkM7zKwtH\nGN4orYxboozbuo5c51iM+Xuzt/KO488/Wl+L42CoqAB4jERJRPtBMoQaB5GPANCS\neskZYEeHk6qB/dYNmNXd8NLAbb9ah0+l5j6XMAtdp5sT4f/wOp/PthLTsSAok07J\n+qGoNhkWScyOk97wVBH+YPwdVbnH2FsdLDYVe+tQyQKBgQDSPB143rgVYwNksv79\nD+eN51zR1o1Zb3rOLufpcHacTWbvISXcgduGDLbxyLqQsdPuf8M+aHOHu1Wc1Rk5\nMZHBThQv64MhZFZqQk8di6L6X/pzTh1mIa3ypfdY+ErMODdkNae/zvtzRb0udqeq\niEJEKoNIZk/JLXC7Lgw7rjLhlQKBgQDJ7xFaloCCfK+fjDjaWhNr6t48w972TcK8\nn3pKfRFGHirOJ5Wj/RA73pDTueyeaZoBdwf+3FCZ5wSRaM24fdYVubx4mB1W0rr2\nRMm52/bkOfMvZRiAVAOppJ1EP13tHSXKTDOgexMDmyInlEsElyNcr1nt1x2aJk5/\nkdcGiWNwlQKBgQCPGNv2qaIi7IIiyLNHDMxPimtjaOZNOdQdA1BXVHVnbkfh/G4I\n6VrCo2Tirf5O/ruCWvRKRk5c1OYxGdtRUqwjJ0IWW/elguZO7VNsiN8mDK4sTb81\nBTehMdZqeJZw6tLJIrxLklcU3yMlvR3itVxliYpSfVFRXdydi3pIJQn9AQKBgQCN\nGF4nzcE9a6HK+U9AQnAPl6xxCOthbjQDV+s64OiQ9cMzCLWmP8x4CKtpRR/wEBlr\nrKAJlCc9Yg3vDCuyHTrZM05ddOwLHnNEYAwTsX5xOYySMTFNeWaVwk+gwCYA57zf\n/R6Vo2lFu7/Bp/xC2Nf8iwlrBkPI0btHp7928chpgQKBgGi4qte+sNg/ZTLSsw47\nxCXnsErHginE2UBvzlBMwbNQgtznodKhwPOLpyQPK+376f0PHkRqB6e6kNCj60IW\nsRrPcFI1ooSQkpGx8fFzSScVUWa55jciMqgPrcFVIQ5BPDlcUbH5AG4Y+nDA9LzY\n9DYcyKGVAoTtdJuxJc4aQPcV\n-----END PRIVATE KEY-----\n",
+  "client_email": "rasa-bot-access@sharp-kayak-459602-i8.iam.gserviceaccount.com",
+  "client_id": "117538168587292279033",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rasa-bot-access%40sharp-kayak-459602-i8.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

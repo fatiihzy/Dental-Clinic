@@ -1,0 +1,47 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Jawab salam
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Jawab pertanyaan pakai GPT
+  steps:
+    - intent: ask_gpt
+    - action: action_gpt_answer
+
+- rule: Jawab semua jadwal dokter
+  steps:
+    - intent: tanya_semua_jadwal_dokter
+    - action: action_semua_jadwal_dokter
+
+- rule: Mulai form janji temu
+  steps:
+    - intent: buat_janji_temu
+    - action: form_janji_temu
+    - active_loop: form_janji_temu
+
+- rule: Selesai form janji temu
+  condition:
+    - active_loop: form_janji_temu
+  steps:
+    - action: form_janji_temu
+    - active_loop: null
+    - action: action_simpan_janji_temu
+
+- rule: Simpan janji langsung dari input lengkap
+  steps:
+    - intent: buat_janji_lengkap
+    - action: action_simpan_janji_temu
