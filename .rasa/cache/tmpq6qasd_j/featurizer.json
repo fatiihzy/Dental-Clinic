@@ -1,0 +1,92 @@
+{
+  "type": "MaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "ask_gpt": 1,
+        "back": 2,
+        "buat_janji_temu": 3,
+        "deny": 4,
+        "fallback": 5,
+        "inform": 6,
+        "jawab_dokter": 7,
+        "jawab_jam": 8,
+        "jawab_kontak": 9,
+        "jawab_nama": 10,
+        "jawab_pengobatan": 11,
+        "jawab_tanggal": 12,
+        "mood_great": 13,
+        "mood_unhappy": 14,
+        "nlu_fallback": 15,
+        "out_of_scope": 16,
+        "restart": 17,
+        "session_start": 18,
+        "tanya_jadwal_dokter": 19,
+        "tanya_semua_jadwal": 20,
+        "tanya_umum_perawatan": 21,
+        "tolak_janji_temu": 22
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_gpt_answer": 13,
+        "action_simpan_janji_temu": 14,
+        "action_cek_jadwal_dokter": 15,
+        "action_semua_jadwal_dokter": 16,
+        "validate_form_janji_temu": 17,
+        "utter_cheer_up": 18,
+        "utter_data_tidak_lengkap": 19,
+        "utter_default": 20,
+        "utter_did_that_help": 21,
+        "utter_goodbye": 22,
+        "utter_greet": 23,
+        "utter_happy": 24,
+        "utter_iamabot": 25,
+        "utter_sapa": 26,
+        "utter_tanya_dokter": 27,
+        "utter_tanya_jam": 28,
+        "utter_tanya_jenis_pengobatan": 29,
+        "utter_tanya_kontak": 30,
+        "utter_tanya_nama": 31,
+        "utter_tanya_tanggal": 32,
+        "utter_tidak_paham": 33,
+        "form_janji_temu": 34
+      },
+      "entities": {
+        "dokter": 0,
+        "jam": 1,
+        "jenis_pengobatan": 2,
+        "kontak": 3,
+        "nama": 4,
+        "tanggal": 5
+      },
+      "slots": {
+        "nama_0": 0,
+        "dokter_0": 1,
+        "tanggal_0": 2,
+        "jam_0": 3,
+        "kontak_0": 4,
+        "jenis_pengobatan_0": 5
+      },
+      "active_loop": {
+        "form_janji_temu": 0
+      }
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

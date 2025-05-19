@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-dokter",
+      "2": "I-dokter",
+      "3": "L-dokter",
+      "4": "U-dokter",
+      "5": "B-nama_dokter",
+      "6": "I-nama_dokter",
+      "7": "L-nama_dokter",
+      "8": "U-nama_dokter",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-dokter": 1,
+      "I-dokter": 2,
+      "L-dokter": 3,
+      "U-dokter": 4,
+      "B-nama_dokter": 5,
+      "I-nama_dokter": 6,
+      "L-nama_dokter": 7,
+      "U-nama_dokter": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

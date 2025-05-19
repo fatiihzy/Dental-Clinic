@@ -4,13 +4,13 @@ rules:
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+    - intent: goodbye
+    - action: utter_goodbye
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+    - intent: bot_challenge
+    - action: utter_iamabot
 
 - rule: Jawab salam
   steps:
@@ -33,7 +33,7 @@ rules:
     - action: form_janji_temu
     - active_loop: form_janji_temu
 
-- rule: Selesai form janji temu
+- rule: Form selesai dan simpan janji temu
   condition:
     - active_loop: form_janji_temu
   steps:
@@ -41,7 +41,14 @@ rules:
     - active_loop: null
     - action: action_simpan_janji_temu
 
-- rule: Simpan janji langsung dari input lengkap
+# Jika user langsung menyebut semua data lengkap
+- rule: Simpan janji temu dari input lengkap
   steps:
     - intent: buat_janji_lengkap
     - action: action_simpan_janji_temu
+
+# Optional: jika user nanya jadwal dokter tertentu
+- rule: Cek jadwal satu dokter
+  steps:
+    - intent: tanya_jadwal_dokter
+    - action: action_cek_jadwal_dokter

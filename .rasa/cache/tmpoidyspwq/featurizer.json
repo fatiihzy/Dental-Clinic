@@ -1,0 +1,76 @@
+{
+  "type": "IntentMaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "ask_gpt": 1,
+        "ask_name": 2,
+        "back": 3,
+        "bot_challenge": 4,
+        "buat_janji_lengkap": 5,
+        "buat_janji_temu": 6,
+        "deny": 7,
+        "goodbye": 8,
+        "greet": 9,
+        "mood_great": 10,
+        "mood_unhappy": 11,
+        "nlu_fallback": 12,
+        "out_of_scope": 13,
+        "restart": 14,
+        "session_start": 15,
+        "tanya_jadwal_dokter": 16,
+        "tanya_semua_jadwal_dokter": 17
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_gpt_answer": 13,
+        "action_cek_jadwal_dokter": 14,
+        "action_simpan_janji_temu": 15,
+        "action_semua_jadwal_dokter": 16,
+        "utter_ask_dokter": 17,
+        "utter_ask_jam": 18,
+        "utter_ask_jenis_pengobatan": 19,
+        "utter_ask_kontak": 20,
+        "utter_ask_nama": 21,
+        "utter_ask_tanggal": 22,
+        "utter_cheer_up": 23,
+        "utter_default": 24,
+        "utter_did_that_help": 25,
+        "utter_goodbye": 26,
+        "utter_greet": 27,
+        "utter_happy": 28,
+        "utter_iamabot": 29,
+        "form_janji_temu": 30
+      },
+      "entities": {
+        "dokter": 0,
+        "jam": 1,
+        "jenis_pengobatan": 2,
+        "kontak": 3,
+        "nama": 4,
+        "tanggal": 5
+      },
+      "slots": {},
+      "active_loop": {
+        "form_janji_temu": 0
+      }
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

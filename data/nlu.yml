@@ -1,151 +1,51 @@
-version: "3.1"
-
-nlu:
-- intent: greet
+- intent: inform
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - halo
-    - hai
-    - selamat pagi
-    - selamat siang
-    - selamat sore
-    - selamat malam
-
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-
-- intent: ask_name
-  examples: |
-    - siapa nama saya
-    - siapa nama gw
-    - siapa nama aku
-    - tolong sebutkan namaku
-    - tolong sebutkan nama saya
-    - tolong sebutin nama aku dong
-    
-- intent: ask_gpt
-  examples: |
-    - Apa itu tambal gigi?
-    - Dokter siapa yang praktek hari ini?
-    - Apakah scaling gigi sakit?
-    - Apa itu scaling gigi?
-    - tips biar gigi putih dong
-    - berapa biaya tambal gigi?
+    - Nama saya [Andi](nama)
+    - Saya mau scaling
+    - [dr. Rina](dokter)
+    - Hari [Senin](tanggal)
+    - Jam [10 pagi](jam)
+    - [08123456789](kontak)
+    - Saya butuh [cabut gigi](jenis_pengobatan)
+    - Mau perawatan [tambal gigi](jenis_pengobatan)
+    - Kontak saya [08988888888](kontak)
+    - Namaku [Budi](nama)
 
 - intent: buat_janji_temu
   examples: |
-    - Saya mau buat janji dengan [dr. Rina](dokter) hari Senin
-    - Tolong catat janji temu saya dengan [dr. Budi](dokter) besok
-    - saya mau buat janji temu
-    - saya ingin daftar ke dokter
-    - bisa bikin appointment?
-    - saya mau booking perawatan gigi
-    - aku mau buat janji temu
-    - Saya mau buat janji dengan [dr. Rina](dokter)
-    - Booking sama [dr. Budi](dokter) ya
-
-- intent: tanya_jadwal_dokter
-  examples: |
-    - saya ingin tahu jadwal [dr. Rina](dokter)
-    - jadwalnya [dr. Andi](dokter)
-    - [dr. Budi](dokter) jadwalnya gimana?
-    - [dr. Siti](dokter) praktik hari apa?
-    - hari apa [dr. Wahyu](dokter) ada?
-
-- intent: tanya_semua_jadwal_dokter
-  examples: |
-    - siapa saja dokternya?
-    - kasih list jadwal dokter dong
-    - semua jadwal dokter ada?
-    - dokter siapa aja yang praktek dan jadwalnya?
+    - Saya mau buat janji temu
+    - Bisa bikin janji?
+    - Mau ketemu dokter
+    - Booking ke dokter dong
+    - Aku mau periksa gigi
+    - Mau daftar ke klinik gigi
+    - Saya ingin buat janji scaling
 
 - intent: buat_janji_lengkap
   examples: |
-    - Saya mau buat janji dengan [dr. Rina](dokter) hari Senin jam 10 pagi untuk scaling, kontak saya 08123456789, nama saya Andi
-    - Mau booking sama [dr. Siti](dokter) hari Kamis jam 14.00, saya Budi, kontak 0899999999, mau cabut gigi
-    - Aku mau 
-    - Saya mau buat janji dengan [dr. Budi](dokter) hari Selasa jam 13.30 pagi untuk scaling, kontak saya 08123456789, nama saya Rudi
     - Saya mau buat janji dengan [dr. Rina](dokter) hari [Senin](tanggal) jam [10 pagi](jam) untuk [scaling](jenis_pengobatan), kontak saya [08123456789](kontak), nama saya [Andi](nama)
+    - Mau booking sama [dr. Siti](dokter) hari [Kamis](tanggal) jam [14.00](jam), saya [Budi](nama), kontak [0899999999](kontak), mau [cabut gigi](jenis_pengobatan)
+    - Saya ingin daftar ke [dr. Budi](dokter), hari [Selasa](tanggal), jam [13.30](jam), jenis perawatan [scaling](jenis_pengobatan), kontak saya [08123456789](kontak), nama saya [Rudi](nama)
 
+- intent: tanya_jadwal_dokter
+  examples: |
+    - jadwal [dr. Rina](dokter) kapan?
+    - kapan [dr. Sari](dokter) praktek?
+    - [dr. Budi](dokter) ada hari apa?
+    - bisa lihat jadwal [dr. Rina](dokter)?
+
+- intent: tanya_semua_jadwal_dokter
+  examples: |
+    - siapa saja jadwal dokter minggu ini?
+    - bisa lihat jadwal semua dokter?
+    - tolong tampilkan seluruh jadwal dokter
+
+- lookup: dokter
+  examples: |
+    - dr. Rina
+    - dr. Budi
+    - dr. Sari
+
+- regex: kontak
+  examples: |
+    - [0-9]{10,13}

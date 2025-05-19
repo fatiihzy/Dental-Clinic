@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-nama_dokter",
+      "2": "I-nama_dokter",
+      "3": "L-nama_dokter",
+      "4": "U-nama_dokter",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-nama_dokter": 1,
+      "I-nama_dokter": 2,
+      "L-nama_dokter": 3,
+      "U-nama_dokter": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]
