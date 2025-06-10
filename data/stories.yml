@@ -4,12 +4,14 @@ stories:
 
 - story: happy path
   steps:
+  - intent: greet
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
 
 - story: sad path 1
   steps:
+  - intent: greet
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
@@ -19,6 +21,7 @@ stories:
 
 - story: sad path 2
   steps:
+  - intent: greet
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
@@ -26,40 +29,7 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-#- story: Simpan janji temu
-#  steps:
-#    - intent: buat_janji_temu
-#    - action: action_simpan_janji_temu
-
 - story: Tampilkan semua jadwal dokter
   steps:
     - intent: tanya_semua_jadwal_dokter
     - action: action_semua_jadwal_dokter
-
-- story: Buat janji lengkap langsung
-  steps:
-    - intent: buat_janji_lengkap
-    - action: action_simpan_janji_temu
-
-- story: Buat janji lewat form
-  steps:
-    - intent: buat_janji_temu
-    - action: form_janji_temu
-    - active_loop: form_janji_temu
-
-- story: Selesaikan form janji temu
-  steps:
-    - active_loop: form_janji_temu
-    - action: form_janji_temu
-    - active_loop: null
-    - action: action_simpan_janji_temu
-
-- story: Tanya ke GPT
-  steps:
-    - intent: ask_gpt
-    - action: action_gpt_answer
-
-- story: Cek jadwal satu dokter
-  steps:
-    - intent: tanya_jadwal_dokter
-    - action: action_cek_jadwal_dokter

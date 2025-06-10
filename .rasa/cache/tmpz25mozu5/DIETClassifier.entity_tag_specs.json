@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-dokter",
+      "2": "I-dokter",
+      "3": "L-dokter",
+      "4": "U-dokter",
+      "5": "B-jenis_pengobatan",
+      "6": "I-jenis_pengobatan",
+      "7": "L-jenis_pengobatan",
+      "8": "U-jenis_pengobatan",
+      "9": "B-kontak",
+      "10": "I-kontak",
+      "11": "L-kontak",
+      "12": "U-kontak",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-dokter": 1,
+      "I-dokter": 2,
+      "L-dokter": 3,
+      "U-dokter": 4,
+      "B-jenis_pengobatan": 5,
+      "I-jenis_pengobatan": 6,
+      "L-jenis_pengobatan": 7,
+      "U-jenis_pengobatan": 8,
+      "B-kontak": 9,
+      "I-kontak": 10,
+      "L-kontak": 11,
+      "U-kontak": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

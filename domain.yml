@@ -1,104 +1,45 @@
 version: "3.1"
 
 intents:
-  - buat_janji_temu
-  - buat_janji_lengkap
-  - jawab_nama
-  - jawab_dokter
-  - jawab_tanggal
-  - jawab_jam
-  - jawab_kontak
-  - jawab_pengobatan
-  - tolak_janji_temu
-  - tanya_jadwal_dokter
-  - tanya_semua_jadwal_dokter
-  - fallback
-  - inform
-  - ask_gpt
-  - mood_great
-  - mood_unhappy
+  - greet
+  - goodbye
   - affirm
   - deny
-  - goodbye
-
-entities:
-  - nama
-  - dokter
-  - tanggal
-  - jam
-  - kontak
-  - jenis_pengobatan
-
-slots:
-  nama:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: nama
-  dokter:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: dokter
-  tanggal:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: tanggal
-  jam:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: jam
-  kontak:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: kontak
-  jenis_pengobatan:
-    type: text
-    influence_conversation: true
-    mappings:
-      - type: from_entity
-        entity: jenis_pengobatan
-
-forms:
-  form_janji_temu:
-    required_slots:
-      - nama
-      - dokter
-      - tanggal
-      - jam
-      - kontak
-      - jenis_pengobatan
-
-actions:
-  - action_gpt_answer
-  - action_simpan_janji_temu
-  - action_cek_jadwal_dokter
-  - action_semua_jadwal_dokter
-  - validate_form_janji_temu
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_gpt
+  - tanya_semua_jadwal_dokter
+  - tanya_jadwal_dokter
+  - tentang_bot
+  - tanya_lokasi
+  - tanya_jam_operasional
+  - tanya_kontak
 
 responses:
-  utter_tanya_nama:
-    - text: "Siapa nama Anda?"
-  utter_tanya_jenis_pengobatan:
-    - text: "Jenis pengobatan apa yang Anda butuhkan? (scaling, tambal, cabut, dll)"
-  utter_data_tidak_lengkap:
-    - text: "❌ Data belum lengkap. Mohon lengkapi semua informasi."
-  utter_sapa:
-    - text: "Halo! Ada yang bisa saya bantu?"
-  utter_iamabot:
-    - text: "Saya adalah asisten virtual klinik gigi. Ada yang bisa saya bantu? 😊"
-  utter_goodbye:
-    - text: "Sampai jumpa! 😊"
   utter_greet:
     - text: "Hai! Ada yang bisa saya bantu hari ini?"
+
+  utter_goodbye:
+    - text: "Sampai jumpa!"
+
+  utter_tentang_bot:
+    - text: |
+        Halo! Aku adalah chatbot dari Gigita Dental Care 🦷. Aku di sini untuk membantumu seputar layanan klinik kami, perawatan gigi, jadwal dokter, dan info penting lainnya. Silakan tanya apa saja ya! 😊
+
+  utter_lokasi:
+    - text: Klinik kami berlokasi di Jl. Perintis Kemerdekaan III No.4 Makassar, Sulawesi Selatan 📍
+
+  utter_jam_operasional:
+    - text: Klinik kami buka setiap hari Senin sampai Sabtu, pukul 17.00 - 21.00 🕗
+
+  utter_kontak:
+    - text: Kamu bisa hubungi kami di nomor +62 8517 9966117, atau kirim email ke [EMAIL DI SINI] ✉️
+
+
+  utter_default:
+    - text: "Maaf, saya hanya bisa menjawab pertanyaan tentang layanan dan perawatan gigi."
+
   utter_cheer_up:
     - text: "Semoga ini bisa membuatmu lebih baik :)"
       image: "https://i.imgur.com/nGF1K8f.jpg"
@@ -107,9 +48,19 @@ responses:
     - text: "Apakah itu membantu?"
 
   utter_happy:
-    - text: "Hebat! Lanjutkan :)"
-
-  utter_default:
-    - text: "Maaf, saya hanya bisa menjawab pertanyaan tentang layanan dan perawatan gigi."
+    - text: "Senang mendengarnya! 😊"
 
 
+
+
+
+
+actions:
+  - action_gpt_answer
+  - action_cek_jadwal_dokter
+  - action_semua_jadwal_dokter
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

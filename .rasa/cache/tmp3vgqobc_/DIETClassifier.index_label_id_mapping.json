@@ -1,0 +1,13 @@
+{
+  "0": "affirm",
+  "1": "ask_gpt",
+  "2": "ask_name",
+  "3": "bot_challenge",
+  "4": "deny",
+  "5": "goodbye",
+  "6": "greet",
+  "7": "mood_great",
+  "8": "mood_unhappy",
+  "9": "tanya_jadwal_dokter",
+  "10": "tanya_semua_jadwal_dokter"
+}

@@ -4,11 +4,9 @@ import re
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from dotenv import load_dotenv
-from rasa_sdk.forms import FormValidationAction
 from rasa_sdk import Action
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.types import DomainDict
-from typing import Any, Dict, List, Text, Optional
+
 
 load_dotenv()
 together_api_key = os.getenv("TOGETHER_API_KEY")
@@ -20,12 +18,6 @@ class ActionGPTAnswer(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker, domain):
         user_input = tracker.latest_message.get("text")
 
-        if not any(k in user_input.lower() for k in
-                   ["gigi", "klinik", "dokter", "perawatan", "karang", "tambal",
-                    "scaling", "cabut", "sakit", "berdarah", "gusi", "nyeri", "mulut"]):
-            dispatcher.utter_message(text="Maaf, saya hanya menjawab pertanyaan tentang layanan dan perawatan gigi ya 🙂")
-            return []
-
         try:
             response = requests.post(
                 "https://api.together.xyz/v1/chat/completions",
@@ -34,36 +26,49 @@ class ActionGPTAnswer(Action):
                     "Content-Type": "application/json"
                 },
                 json={
-                    "model": "meta-llama/Llama-3-8b-chat-hf",
+                    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
                     "messages": [
                         {
                             "role": "system",
-                            "content": (
-                                "Kamu adalah chatbot untuk klinik gigi. Jawablah setiap pertanyaan dengan gaya santai tapi tetap serius dan profesional. "
-                                "Jawaban harus langsung to the point, tidak mengulang pertanyaan, tidak membuka dengan basa-basi atau ketawa. "
-                                "Gunakan Bahasa Indonesia dan boleh pakai emoji agar tidak terlalu kaku. "
-                                "Jangan menjawab pertanyaan di luar topik gigi, dokter gigi, perawatan mulut, dan layanan klinik gigi."
-                            )
-                        },
+                            "content":
+                                "Kamu adalah chatbot untuk klinik gigi yang bernama gigita dental care. Jawablah pertanyaan berikut dengan gaya santai, boleh pakai emot seperti '😊' '😁' '🦷', atau lainnya biar tidak terlalu kaku, pakai Bahasa Indonesia.\n"
+                                "Jawaban harus langsung ke poinnya, boleh pakai emot, dan hindari mengulang pertanyaan user. "
+                                "Jangan pakai label seperti 'Jawaban:', 'Solution:', atau tanda ```.\n"
+                                "Kalau topiknya di luar kesehatan atau layanan gigi, cukup bilang tidak bisa bantu."
+                                "Kalau pertanyaan user tidak mengandung kata kunci seperti 'gigi', 'dokter', 'klinik', 'perawatan', 'gusi', 'bengkak', 'sakit', 'tambal', 'scaling', atau topik lain terkait kesehatan gigi — JANGAN JAWAB, cukup katakan tidak bisa membantu karena topiknya di luar layanan gigi"
+                           },
                         {
                             "role": "user",
                             "content": user_input
                         }
                     ],
                     "temperature": 0.7,
-                    "max_tokens": 200
+                    "max_tokens": 500
                 },
                 timeout=60
             )
 
+
             result = response.json()
             answer = result.get("choices", [{}])[0].get("message", {}).get("content", "").strip()
 
+            # Deteksi kata kunci keluhan
+            keluhan_keywords = ["sakit", "bengkak", "berdarah", "ngilu", "copot", "retak", "nyeri", "perih"]
+            if any(k in user_input.lower() for k in keluhan_keywords):
+                cta = "\n\nKalau kamu merasa tidak nyaman dengan kondisi gigi atau gusi, kami sarankan untuk booking janji temu dengan dokter melalui whatsapp kami di 085179966117 ya 😊"
+                answer += cta
+
+            # Kalau pertanyaan di luar topik gigi, kasih respon default
+            if not any(k in user_input.lower() for k in
+                       ["gigi", "klinik", "dokter", "perawatan", "karang", "tambal", "scaling", "cabut", "gusi"]):
+                answer = "Maaf, saya hanya menjawab pertanyaan tentang layanan dan perawatan gigi ya 🙂"
+
         except Exception as e:
-            answer = f"❌ Error saat menghubungi model: {str(e)}"
+            answer = f"Ada error nih: {str(e)}"
 
         dispatcher.utter_message(text=answer)
         return []
+
 
 class ActionCekJadwalDokter(Action):
     def name(self):
@@ -82,6 +87,7 @@ class ActionCekJadwalDokter(Action):
         client = gspread.authorize(creds)
 
         sheet = client.open("JadwalDokter").sheet1
+
         data = sheet.get_all_records()
 
         jadwal_dokter = None
@@ -108,7 +114,8 @@ class ActionSemuaJadwalDokter(Action):
             creds = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
             client = gspread.authorize(creds)
 
-            sheet = client.open("JadwalDokter").sheet1
+            sheet = client.open("JadwalDokter").sheet1  # Ganti sesuai nama Sheet
+
             records = sheet.get_all_records()
 
             response = "Berikut jadwal dokter:\n"
@@ -121,73 +128,3 @@ class ActionSemuaJadwalDokter(Action):
             dispatcher.utter_message(text=f"Gagal ambil data dari Google Sheet: {str(e)}")
 
         return []
-
-class ValidateFormJanjiTemu(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_form_janji_temu"
-
-    def validate_nama(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker, domain: DomainDict) -> Dict[Text, Any]:
-        return {"nama": slot_value.strip()}
-
-    def validate_dokter(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker, domain: DomainDict) -> Dict[Text, Any]:
-        match = re.search(r"dr(?:\.| )?([\w\s]+)", slot_value, re.IGNORECASE)
-        if match:
-            return {"dokter": match.group(1).strip()}
-        return {"dokter": slot_value.strip()}
-
-    def validate_tanggal(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker, domain: DomainDict) -> Dict[Text, Any]:
-        match = re.search(r"(senin|selasa|rabu|kamis|jumat|sabtu|minggu|\d{1,2}/\d{1,2}/\d{4})", slot_value, re.IGNORECASE)
-        if match:
-            return {"tanggal": match.group(1).strip()}
-        return {"tanggal": slot_value.strip()}
-
-    def validate_jam(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker, domain: DomainDict) -> Dict[Text, Any]:
-        match = re.search(r"(\d{1,2}:\d{2})", slot_value)
-        if match:
-            return {"jam": match.group(1).strip()}
-        return {"jam": slot_value.strip()}
-
-    def validate_kontak(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker, domain: DomainDict) -> Dict[Text, Any]:
-        match = re.search(r"(\+?\d{10,15})", slot_value)
-        if match:
-            return {"kontak": match.group(1).strip()}
-        return {"kontak": slot_value.strip()}
-
-    def validate_jenis_pengobatan(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker, domain: DomainDict) -> Dict[Text, Any]:
-        match = re.search(r"(scaling|tambal|cabut|perawatan[\w\s]*)", slot_value, re.IGNORECASE)
-        if match:
-            return {"jenis_pengobatan": match.group(1).strip()}
-        return {"jenis_pengobatan": slot_value.strip()}
-
-class ActionSimpanJanjiTemu(Action):
-    def name(self):
-        return "action_simpan_janji_temu"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker, domain):
-        try:
-            nama = (tracker.get_slot("nama") or "").strip()
-            dokter = (tracker.get_slot("dokter") or "").strip()
-            tanggal = (tracker.get_slot("tanggal") or "").strip()
-            jam = (tracker.get_slot("jam") or "").strip()
-            kontak = (tracker.get_slot("kontak") or "").strip()
-            jenis_pengobatan = (tracker.get_slot("jenis_pengobatan") or "").strip()
-
-            if not all([nama, dokter, tanggal, jam, kontak, jenis_pengobatan]):
-                dispatcher.utter_message(text="❌ Data belum lengkap. Mohon lengkapi semua informasi.")
-                return []
-
-            dispatcher.utter_message(
-                text=f"✅ Janji temu berhasil disimpan!\n"
-                     f"Nama: {nama}\nDokter: {dokter}\nTanggal: {tanggal}\nJam: {jam}\nKontak: {kontak}\nPerawatan: {jenis_pengobatan}"
-            )
-        except Exception as e:
-            dispatcher.utter_message(text=f"❌ Gagal menyimpan janji temu: {str(e)}")
-
-        return []
-
-def ambil_nama_dokter_dari_sheet():
-    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-    json_path = os.path.join(os.path.dirname(__file__), "sharp-kayak-459602-i8-bf30544ffcf8.json")
-    creds = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
-    client = gspread.authorize(creds)
-    sheet = client.open("JadwalDokter").sheet

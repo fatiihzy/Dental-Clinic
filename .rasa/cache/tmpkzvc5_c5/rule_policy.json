@@ -1,0 +1,42 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_kontak\"}}]": "utter_kontak",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_kontak\"}}, {\"prev_action\": {\"action_name\": \"utter_kontak\"}, \"user\": {\"intent\": \"tanya_kontak\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tentang_bot\"}}]": "utter_tentang_bot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tentang_bot\"}}, {\"prev_action\": {\"action_name\": \"utter_tentang_bot\"}, \"user\": {\"intent\": \"tentang_bot\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_lokasi\"}}]": "utter_lokasi",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_lokasi\"}}, {\"prev_action\": {\"action_name\": \"utter_lokasi\"}, \"user\": {\"intent\": \"tanya_lokasi\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_gpt\"}}]": "action_gpt_answer",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_gpt\"}}, {\"prev_action\": {\"action_name\": \"action_gpt_answer\"}, \"user\": {\"intent\": \"ask_gpt\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_jam_operasional\"}}]": "utter_jam_operasional",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_jam_operasional\"}}, {\"prev_action\": {\"action_name\": \"utter_jam_operasional\"}, \"user\": {\"intent\": \"tanya_jam_operasional\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_semua_jadwal_dokter\"}}]": "action_semua_jadwal_dokter",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_semua_jadwal_dokter\"}}, {\"prev_action\": {\"action_name\": \"action_semua_jadwal_dokter\"}, \"user\": {\"intent\": \"tanya_semua_jadwal_dokter\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_jam_operasional\"}}, {\"prev_action\": {\"action_name\": \"utter_jam_operasional\"}, \"user\": {\"intent\": \"tanya_jam_operasional\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_kontak\"}}, {\"prev_action\": {\"action_name\": \"utter_kontak\"}, \"user\": {\"intent\": \"tanya_kontak\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_lokasi\"}}, {\"prev_action\": {\"action_name\": \"utter_lokasi\"}, \"user\": {\"intent\": \"tanya_lokasi\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_lokasi\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tentang_bot\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_kontak\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_gpt\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tanya_jam_operasional\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"tentang_bot\"}}, {\"prev_action\": {\"action_name\": \"utter_tentang_bot\"}, \"user\": {\"intent\": \"tentang_bot\"}}]",
+      "predicting default action with intent back",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_gpt\"}}, {\"prev_action\": {\"action_name\": \"action_gpt_answer\"}, \"user\": {\"intent\": \"ask_gpt\"}}]"
+    ]
+  }
+}
