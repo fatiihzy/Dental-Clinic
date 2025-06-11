@@ -34,7 +34,7 @@ responses:
     - text: Klinik kami buka setiap hari Senin sampai Sabtu, pukul 17.00 - 21.00 🕗
 
   utter_kontak:
-    - text: Kamu bisa hubungi kami di nomor +62 8517 9966117, atau kirim email ke [EMAIL DI SINI] ✉️
+    - text: Kamu bisa hubungi kami di nomor +62 8517 9966117 📞
 
 
   utter_default:
