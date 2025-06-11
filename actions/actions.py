@@ -1,6 +1,5 @@
 import requests
 import os
-import re
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from dotenv import load_dotenv
