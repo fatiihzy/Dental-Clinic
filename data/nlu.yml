@@ -3,91 +3,72 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - halo
     - hai
+    - halo
     - selamat pagi
-    - selamat siang
     - selamat sore
     - selamat malam
+    - moin
+    - hai teman
+    - apa kabar
+    - selamat siang
+    - hey
+    - halo sana
+    - selamat datang
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
+    - sampai jumpa
+    - selamat tinggal
+    - sampai nanti
+    - dadah
     - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - sampai bertemu lagi
+    - semoga harimu menyenankan
+    - sampai ketemu lagi
+    - dadah dulu ya
 
 - intent: mood_great
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - luar biasa
+    - saya merasa hebat
+    - saya sangat baik
+    - sangat menyenangkan
+    - saya merasa sempurna
+    - sangat bersemangat
+    - saya merasa luar biasa
+    - saya senang banget
+    - saya dalam kondisi terbaik
+    - saya sangat baik hari ini
 
 - intent: mood_unhappy
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - hari saya buruk
+    - saya sedih banget
+    - saya gak merasa baik
+    - saya kecewa
+    - aku lagi down
+    - saya merasa sangat buruk
+    - hari ini aku merasa sedih
+    - gak bahagia
+    - aku lagi gak enak badan
+    - saya merasa kosong
+    - gak ada semangat hari ini
+
+- intent: thank_you
+  examples: |
+    - terima kasih
+    - makasih
+    - thanks
+    - terima kasih banyak
+    - sangat berterima kasih
+    - aku berterima kasih
+    - terima kasih atas bantuanmu
+    - terima kasih ya
+    - makasih banyak
+    - membantu banget, terima kasih
+    - membantu sekali, terima kasih
+    - iya membantu, terima kasih
 
 - intent: tentang_bot
   examples: |
@@ -134,19 +115,185 @@ nlu:
 
 - intent: ask_gpt
   examples: |
+    - Apa itu karang gigi?
+    - Bagaimana cara menghilangkan karang gigi?
+    - Apakah karang gigi bisa menyebabkan gigi copot?
+    - Kenapa gigi aku ada karangnya?
+
+- intent: ask_gpt
+  examples: |
     - Apa itu tambal gigi?
-    - Dokter siapa yang praktek hari ini?
-    - Apakah scaling gigi sakit?
+    - Bagaimana cara tambal gigi?
+    - Apakah tambal gigi bisa bertahan lama?
+    - Berapa biaya tambal gigi?
+
+- intent: ask_gpt
+  examples: |
     - Apa itu scaling gigi?
-    - tips biar gigi putih dong
-    - berapa biaya tambal gigi?
-    - gigi aku sakit nih, apa yang harus aku lakukan?
-    - gusiku bengkak, kenapa ya?
-    - gusi ku berdarah, kenapa ya?
-    - gigi aku berlubang, apa yang harus aku lakukan?
-    - kenapa gusi aku gampang berdarah?
-    - gusi bengkak itu biasanya karna apa?
-    - gusi ku bengkak nih, kira kira kenapa ya?
+    - Apakah scaling gigi sakit?
+    - Berapa lama efek scaling gigi bertahan?
+    - Apa manfaat scaling gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Kenapa harus cabut gigi?
+    - Apa efek cabut gigi?
+    - Gigi aku sakit banget, harus cabut ya?
+    - Apa yang terjadi setelah cabut gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu gusi bengkak?
+    - Gusi aku bengkak, kenapa ya?
+    - Kenapa gusi gampang berdarah?
+    - Gusi ku bengkak nih, kira-kira kenapa ya?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu sariawan?
+    - Kenapa bisa sariawan?
+    - Apa obat untuk sariawan?
+    - Gimana cara mengobati sariawan?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu gingivitis?
+    - Apa gejala gingivitis?
+    - Bagaimana cara mengatasi gingivitis?
+    - Gingivitis itu bahaya gak sih?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu periodontitis?
+    - Apa perbedaan periodontitis dan gingivitis?
+    - Apa penyebab periodontitis?
+    - Bagaimana cara mengobati periodontitis?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu plak gigi?
+    - Plak gigi itu apa sih?
+    - Bagaimana cara membersihkan plak gigi?
+    - Plak gigi bisa bikin gigi copot gak?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu karies gigi?
+    - Gigi aku berlubang, apa yang harus aku lakukan?
+    - Apa penyebab karies gigi?
+    - Bagaimana cara mengobati karies gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu cavities?
+    - Kenapa bisa ada cavities di gigi?
+    - Bagaimana cara mencegah cavities?
+    - Apakah cavities itu sama dengan karies gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu fluorosis gigi?
+    - Fluorosis gigi itu bahaya gak?
+    - Gigi aku kuning, apakah itu fluorosis?
+    - Fluorosis gigi bisa diobati gak?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu aftosa?
+    - Aftosa itu menular gak sih?
+    - Bagaimana cara mengobati aftosa?
+    - Apa yang menyebabkan aftosa?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu maloklusi?
+    - Gigi aku gak rata, itu maloklusi gak?
+    - Maloklusi itu bisa diobati gak?
+    - Apa penyebab maloklusi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu tartarus?
+    - Tartarus itu apa ya?
+    - Kenapa ada tartarus di gigi?
+    - Gimana cara membersihkan tartarus?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu bruksisme?
+    - Bruksisme itu gejalanya apa aja?
+    - Apa penyebab bruksisme?
+    - Bagaimana cara mengatasi bruksisme?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu endodonti?
+    - Apa yang dilakukan di endodonti?
+    - Endodonti itu untuk apa?
+    - Apa bedanya endodonti dengan cabut gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu pulpitis?
+    - Pulpitis itu apa ya?
+    - Apa gejala pulpitis?
+    - Bagaimana cara mengatasi pulpitis?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu implan gigi?
+    - Gimana prosedur implan gigi?
+    - Implan gigi itu sakit gak sih?
+    - Berapa biaya implan gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu odontofobia?
+    - Odontofobia itu kenapa bisa terjadi?
+    - Gimana cara mengatasi odontofobia?
+    - Apa yang bisa dilakukan jika takut ke dokter gigi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu perawatan gigi preventif?
+    - Bagaimana cara melakukan perawatan gigi preventif?
+    - Apa manfaat perawatan gigi preventif?
+    - Apa saja yang termasuk perawatan gigi preventif?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu xerostomia?
+    - Xerostomia itu apa ya?
+    - Apa penyebab xerostomia?
+    - Gimana cara mengatasi xerostomia?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu gigi sensitif?
+    - Gigi aku sensitif, kenapa ya?
+    - Bagaimana cara mengatasi gigi sensitif?
+    - Gigi sensitif itu bisa sembuh gak?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu resesi gusi?
+    - Gusi aku mundur, itu resesi gusi gak?
+    - Kenapa bisa terjadi resesi gusi?
+    - Bagaimana cara mengatasi resesi gusi?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu orthodonti?
+    - Orthodonti itu buat apa sih?
+    - Berapa lama perawatan orthodonti?
+    - Gigi aku gak rata, apakah perlu orthodonti?
+
+- intent: ask_gpt
+  examples: |
+    - Apa itu gigi impaksi?
+    - Gigi impaksi itu gejalanya apa?
+    - Kenapa bisa ada gigi impaksi?
+    - Apa yang harus dilakukan jika ada gigi impaksi?
 
 - intent: tanya_jadwal_dokter
   examples: |
@@ -155,9 +302,6 @@ nlu:
     - [dr. Budi](dokter) jadwalnya gimana?
     - [dr. Siti](dokter) praktik hari apa?
     - hari apa [dr. Wahyu](dokter) ada?
-
-- intent: tanya_semua_jadwal_dokter
-  examples: |
     - siapa saja dokternya?
     - kasih list jadwal dokter dong
     - semua jadwal dokter ada?

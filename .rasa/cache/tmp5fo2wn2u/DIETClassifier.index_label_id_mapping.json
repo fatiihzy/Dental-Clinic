@@ -1,0 +1,13 @@
+{
+  "0": "ask_gpt",
+  "1": "goodbye",
+  "2": "greet",
+  "3": "mood_great",
+  "4": "mood_unhappy",
+  "5": "tanya_jadwal_dokter",
+  "6": "tanya_jam_operasional",
+  "7": "tanya_kontak",
+  "8": "tanya_lokasi",
+  "9": "tentang_bot",
+  "10": "thank_you"
+}

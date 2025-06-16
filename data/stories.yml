@@ -15,21 +15,8 @@ stories:
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
 
-- story: sad path 2
+- story: Tampilkan jadwal dokter
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-
-- story: Tampilkan semua jadwal dokter
-  steps:
-    - intent: tanya_semua_jadwal_dokter
-    - action: action_semua_jadwal_dokter
+    - intent: tanya_jadwal_dokter
+    - action: action_cek_jadwal_dokter

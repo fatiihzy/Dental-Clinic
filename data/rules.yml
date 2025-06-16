@@ -7,6 +7,11 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Jawab terima kasih
+  steps:
+    - intent: thank_you
+    - action: utter_thank_you
+
 - rule: Jawaban saat ditanya siapa chatbotnya
   steps:
   - intent: tentang_bot
@@ -37,7 +42,7 @@ rules:
     - intent: ask_gpt
     - action: action_gpt_answer
 
-- rule: Jawab semua jadwal dokter
+- rule: Jawab jadwal dokter
   steps:
-    - intent: tanya_semua_jadwal_dokter
-    - action: action_semua_jadwal_dokter
+    - intent: tanya_jadwal_dokter
+    - action: action_cek_jadwal_dokter

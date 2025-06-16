@@ -3,18 +3,15 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
   - mood_great
   - mood_unhappy
-  - bot_challenge
   - ask_gpt
-  - tanya_semua_jadwal_dokter
   - tanya_jadwal_dokter
   - tentang_bot
   - tanya_lokasi
   - tanya_jam_operasional
   - tanya_kontak
+  - thank_you
 
 responses:
   utter_greet:
@@ -37,15 +34,19 @@ responses:
     - text: Kamu bisa hubungi kami di nomor +62 8517 9966117 📞
 
 
-  utter_default:
-    - text: "Maaf, saya hanya bisa menjawab pertanyaan tentang layanan dan perawatan gigi."
-
   utter_cheer_up:
-    - text: "Semoga ini bisa membuatmu lebih baik :)"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Aku ngerti kok, kadang hari-hari bisa berat. Tapi kamu hebat karena udah bertahan sejauh ini 😊 Jangan ragu untuk cerita atau tanya seputar kesehatan gigi juga ya."
+    - text: "Hei, nggak apa-apa loh ngerasa sedih. Tapi inget, kamu kuat dan pasti bisa lewatin ini 💪 Kalau butuh info seputar gigi, aku siap bantu juga."
+    - text: "Hari ini mungkin terasa berat, tapi besok bisa jadi lebih baik 🌈 Semangat ya! Aku di sini kalau kamu butuh ngobrol seputar klinik atau perawatan gigi."
+    - text: "Jangan lupa, bahkan senyum paling cerah pun pernah redup 🌤️ Kalau mau cerita, aku siap denger... atau bantu booking janji kalau kamu butuh."
+    - text: "Kadang perasaan sedih itu datang diam-diam. Tapi kamu gak sendirian 😊 Mau ngobrol? Aku bisa bantu seputar layanan klinik dan tips jaga gigi juga!"
 
-  utter_did_that_help:
-    - text: "Apakah itu membantu?"
+  utter_thank_you:
+    - text: "Sama-sama! Senang bisa membantu. Kalau ada yang lain, jangan ragu untuk tanya ya! 😊"
+    - text: "Terima kasih kembali! Aku di sini untuk membantu kapan saja. Ada yang ingin kamu tanyakan lagi? 😊"
+    - text: "Sama-sama! Senang bisa membantu. 😊"
+    - text: "Sama-sama! 😊"
+    - text: "Terima kasih kembali! 😊"
 
   utter_happy:
     - text: "Senang mendengarnya! 😊"
@@ -58,7 +59,6 @@ responses:
 actions:
   - action_gpt_answer
   - action_cek_jadwal_dokter
-  - action_semua_jadwal_dokter
 
 
 session_config:
